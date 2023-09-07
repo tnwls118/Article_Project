@@ -20,7 +20,7 @@ class Main {
                 System.out.println("body:");
                 String body = sc.nextLine();
 
-                Aritcle article = new Aritcle(title, body, num);
+                Aritcle article = new Aritcle(title, body, num, Time.time());
                 articles.add(article);
                 System.out.println(num + "번 게시물이 생성되었습니다.\n");
                 num++;
@@ -92,7 +92,7 @@ class Main {
                         String body = sc.nextLine();
                         correcioned = true;
 
-                        Aritcle aritcle = new Aritcle(title, body, correction);
+                        Aritcle aritcle = new Aritcle(title, body, correction, Time.time());
                         articles.set(i, aritcle);
                         System.out.println(correction+"번 게시물이 수정되었습니다.");
                         break;
@@ -110,13 +110,15 @@ class Aritcle {
     String title;
     String body;
     int id;
-    Aritcle(String title, String body, int id){
+    String time;
+    Aritcle(String title, String body, int id,String time){
         this.title = title;
         this.body = body;
         this.id = id;
+        this.time = time;
     }
     @Override
     public String toString() {
-        return "게시물 번호: " + id + "\n제목: " + title + "\n내용: " + body;
+        return "게시물 번호: " + id + "\n제목: " + title + "\n내용: " + body + "\n등록시간:" + time;
     }
 }

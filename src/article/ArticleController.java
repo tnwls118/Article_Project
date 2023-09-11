@@ -16,7 +16,7 @@ public class ArticleController {
         System.out.println("body:");
         String body = sc.nextLine();
 
-        Article article = new Article(title, body, num, Time.getTime());
+        Article article = new Article(title, body,num, Time.getTime());
         articles.add(article);
         System.out.println(num + "번 게시물이 생성되었습니다.\n");
     }

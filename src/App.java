@@ -1,6 +1,8 @@
 import article.Article;
 import article.ArticleController;
 import article.Time;
+import member.Member;
+import member.MemberController;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,13 +12,15 @@ public class App {
         Scanner sc = new Scanner(System.in);
         int num = 1;
         ArrayList<Article> articles = new ArrayList<>();
+        ArrayList<Member> members = new ArrayList<>();
 
         // 초기 테스트 데이터 생성
         createTestData(articles);
 
         ArticleController articleController = new ArticleController(articles);
+        MemberController memberController = new MemberController(members);
 
-        System.out.println("도움말\n 1.article write\n 2.article list\n 3.system.out\n 4.article delete\n 5.article detail\n 6.article correction\n\n ===== 명령어를 입력해주세요.=====");
+        System.out.println("도움말\n 1.article write\n 2.article list\n 3.system.out\n 4.article delete\n 5.article detail\n 6.article correction\n 7.member join\n\n ===== 명령어를 입력해주세요.=====");
 
         while (true) {
             String cdm = sc.nextLine();
@@ -36,6 +40,8 @@ public class App {
                 articleController.viewArticle(sc);
             } else if (cdm.equals("article correction")) {
                 articleController.correctArticle(sc);
+            } else if (cdm.equals("member join")) {
+                memberController.memberJoin(sc,num);
             }
         }
     }

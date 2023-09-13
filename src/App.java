@@ -42,6 +42,7 @@ public class App {
                 articleController.correctArticle(sc);
             } else if (cdm.equals("member join")) {
                 memberController.memberJoin(sc,num);
+                num++;
             }
         }
     }
